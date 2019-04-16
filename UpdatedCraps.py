@@ -1,5 +1,5 @@
 from random import randint
-
+import sys
 
 die1 = randint(1,6)
 die2 = randint(1,6) 
@@ -18,10 +18,10 @@ elif user_value == "y":
     while user_value == "y":
         if total == 2 or total == 3 or total == 12:
             print ("You crapped out rookie!")
-            break
+            sys.exit()
         elif total == 7 or total == 11:
             print ("Winner winner chicken dinner!")
-            break
+            sys.exit()
         else:
             point = total
             print ("") 
@@ -41,7 +41,7 @@ while total1 != 7:
     if total1 == point:
         print ("")
         print ("Winner winner chicken dinner!")
-        break 
+        sys.exit()
     else:
         next_roll = input("Hit enter to roll again.")
         die3 = randint(1,6)
