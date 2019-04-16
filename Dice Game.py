@@ -1,121 +1,53 @@
 from random import randint
-from time import sleep
+from random import randint
 
-# Putting a 'while' loop here could make this a lot more efficient and would kill 
-# half the code it took to write this in its current state.
 
-# Something like -If the dice added up equals any number that doesn't equate to a win or a loss, 
-# then the values need to be discarded and new numbers needs to be re-rolled.-
+die1 = randint(1,6)
+die2 = randint(1,6) 
+total = die1 + die2 
 
-die_1 = []
-die_2 = []
+user_value = input("Do you want to play dice ? 'y' or 'n' ")
 
-chance_1 = (randint(1,6))
-chance_2 = (randint(1,6))
+if user_value == "n":
+    print ("You're dead to me!")
+elif user_value != "n" and user_value != "y":
+    print ("Huh?")
+elif user_value == "y":
+    print ("You rolled: ", (die1),"&",(die2), "a total of: ", (total))
+    while user_value == "y":
+        if total == 2 or total == 3 or total == 12:
+            print ("You crapped out rookie!")
+            break
+        elif total == 7 or total == 11:
+            print ("Winner winner chicken dinner!")
+            break
+        else:
+            point = total
+            print ("") 
+            print ("The point is now: ", total)
+            break
 
-die_1.append(chance_1)
-die_2.append(chance_2) 
 
-print("")
-print("Welcome to the Craps table at Javis Casino! ")
+next_roll = input("Hit enter to roll again.")
 
-sleep (2)
+die3 = randint(1,6)
+die4 = randint(1,6) 
+total1 = die3 + die4
 
-print("")
-print("You wanna roll some dice or what? ")
 
-sleep(2)
-
-user_value = input(" ('y') or ('n') ")
-
-sleep(2)
-
-# Values for rolling yes or no
-if user_value == 'y':
-    print("")
-    print("You rolled a " + str(die_1) + " and a " + str(die_2))
-   
-
-if user_value =='n':
-    print("")
-    print("Youre rolling anyways, buddy.")
-    sleep(2)
-    print("You rolled a " + str(die_1) + " and a " + str(die_2))
-   
-
-sleep(2)
-
-# Values for yes and no rolls, combined with outcome statements
-if user_value == 'y' and die_1 + die_2 == (2, 3, 12):
-    print("")
-    print("Ya lost, chump! ")    
-            
-if user_value == 'n' and die_1 + die_2 == (2, 3, 12):
-    print("")
-    print("Shoulda never rolled, you lost anyways, oh wait... you didnt even want to roll didya? ")
+while total1 != 7:
+    print ("You rolled: ", (die3),"&",(die4), "a total of: ", (total1))
+    if total1 == point:
+        print ("")
+        print ("Winner winner chicken dinner!")
+        break 
+    else:
+        next_roll = input("Hit enter to roll again.")
+        die3 = randint(1,6)
+        die4 = randint(1,6) 
+        total1 = die3 + die4
     
-if user_value == 'y' and die_1 + die_2 == (7, 11):
-    print("")
-    print("Congratulations, you won! ")
-
-if user_value == 'n' and die_1 + die_2 == (7, 11):
-    print("")
-    print("Good thing I rolled for ya! Youre a millionaire now, baby! Can I have a generous tip for my services? ")
-    
-# For some reason, it's not outputting the dialogue here
-if user_value == 'y' and die_1 + die_2 == (4, 5, 6, 8, 9, 10):
-    print("")
-    print("Nothin, you wanna roll again? ")
-
-if user_value == 'n' and die_1 + die_2 == (4, 5, 6, 8, 9, 10):
-    print("")
-    print("Nothin, you wanna roll again? ")
-
-sleep(2)
-
-user_value_2 = input("('y') or ('n') ")
-
-sleep(2)
-
-# Values for rolling yes or no
-if user_value_2 == 'y':
-    print("")
-    print("You rolled a " + str(die_1) + " and a " + str(die_2))
-
-if user_value_2 =='n':
-    print("")
-    print("Youre rolling anyways, buddy.")
-    sleep(2)
-    print("You rolled a " + str(die_1) + " and a " + str(die_2))
-
-sleep(2)
-
-# Values for yes and no rolls, combined with outcome statements
-if user_value_2 == 'y' and die_1 + die_2 == (2, 3, 12):
-    print("")
-    print("Ya lost, chump! ")    
-            
-if user_value_2 == 'n' and die_1 + die_2 == (2, 3, 12):
-    print("")
-    print("Shoulda never rolled, you lost anyways, oh wait... you didnt even want to roll didya? ")
-    
-if user_value_2 == 'y' and die_1 + die_2 == (7, 11):
-    print("")
-    print("Congratulations, you won! ")
-
-if user_value_2 == 'n' and die_1 + die_2 == (7, 11):
-    print("")
-    print("Good thing I rolled for ya! Youre a millionaire now, baby! Can I have a generous tip for my services? ")
-
-#  For some reason, it's not outputting the dialogue here
-if user_value == 'y' and die_1 + die_2 == (4, 5, 6, 8, 9, 10):
-    print("")
-    print("Nothin, you wanna roll again? ")
-
-if user_value == 'n' and die_1 + die_2 == (4, 5, 6, 8, 9, 10):
-    print("")
-    print("Nothin, you wanna roll again? ")
-
-sleep(2)
-   
-user_value_2 = input("('y') or ('n') ")
+if total1 == 7:
+    print ("You rolled: ", (die3),"&",(die4), "a total of: ", (total1))
+    print ("")
+    print ("Seven out..")
